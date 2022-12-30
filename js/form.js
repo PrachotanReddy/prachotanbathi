@@ -1,49 +1,36 @@
-$(function() {
-
-	// Get the form.
-	var form = $('#ajax-contact');
-
-	// Get the messages div.
-	var formMessages = $('#form-messages');
-
-	// Set up an event listener for the contact form.
-	$(form).submit(function(e) {
-		// Stop the browser from submitting the form.
-		e.preventDefault();
-
-		// Serialize the form data.
-		var formData = $(form).serialize();
-
-		// Submit the form using AJAX.
-		$.ajax({
-			type: 'POST',
-			url: $(form).attr('action'),
-			data: formData
-		})
-		.done(function(response) {
-			// Make sure that the formMessages div has the 'success' class.
-			$(formMessages).removeClass('bg-danger');
-			$(formMessages).addClass('bg-success');
+var form = document.getElementById("ajax-contact");
+    
+    async function handleSubmit(event) {
+      event.preventDefault();
+      var status = document.getElementById("form-messages");
+      var data = new FormData(event.target);
+      fetch(event.target.action, {
+        method: form.method,
+        body: data,
+        headers: {
+            'Accept': 'application/json'
+        }
+      }).then(response => {
+        if (response.ok) {
+			$(status).removeClass('bg-danger');
+			$(status).addClass('bg-success');
 
 			// Set the message text.
-			$(formMessages).text('Your message successfully sent');
-
-			// Clear the form.
-			$('#name, #email, #message').val('');			
-		})
-		.fail(function(data) {
-			// Make sure that the formMessages div has the 'error' class.
-			$(formMessages).removeClass('bg-success');
-			$(formMessages).addClass('bg-danger');
-
-			// Set the message text.
-			if (data.responseText !== '') {
-				$(formMessages).text(data.responseText);
-			} else {
-				$(formMessages).text('Oops! An error occured and your message could not be sent.');
-			}
-		});
-
-	});
-
-});
+			$(status).text('Your message successfully sent');
+          form.reset()
+        } else {
+			$(status).removeClass('bg-success');
+			$(status).addClass('bg-danger');
+          response.json().then(data => {
+            if (Object.hasOwn(data, 'errors')) {
+				$(status).text(data["errors"].map(error => error["message"]).join(", "))
+            } else {
+				$(status).text("Oops! There was a problem submitting your form")
+            }
+          })
+        }
+      }).catch(error => {
+        $(status).text("Oops! There was a problem submitting your form")
+      });
+    }
+    form.addEventListener("submit", handleSubmit)
