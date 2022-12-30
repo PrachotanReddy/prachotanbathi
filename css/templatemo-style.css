@@ -180,7 +180,7 @@ video {
 .btn:hover, .btn:focus {
   color:#fff;
   border-color:#fff;
-  background:none;A40606
+  background:none;
 }
 .btn:focus {
   box-shadow:none;
@@ -364,7 +364,7 @@ a#logo {
 03. SOCIAL ICONS CSS
 ================================================*/
 #social-icons {
-  padding:0;
+  padding: 1px;
   position: fixed;
   top: 50%;
   transform: translateY(-50%);
@@ -381,8 +381,8 @@ a#logo {
   margin: 1px 0px;
 }
 .social-icons li a {
-  width:50px;
-  height:50px;
+  width:55px;
+  height:55px;
   display:inline-block;
   line-height:50px;
   text-align:center;
@@ -464,9 +464,9 @@ a#logo {
   box-shadow: 0 0 40px rgba(0,0,0,.3);
 }
 .about-contentbox {
-  margin-top: 80px;
+  margin-top: 40px;
   text-align:left;
-  line-height:1.8;
+  line-height:1.6;
 }
 .about-contentbox span {
   font-size: 24px;
@@ -821,7 +821,7 @@ textarea.form-control {
 ================================================*/
 .testimonials-section .item {
   background-color: rgba(250,250,250,0.25);
-  padding: 40px;
+  padding: 18px;
   border-radius: 10px;
 }
 .testimonials-section .item img {
@@ -830,7 +830,7 @@ textarea.form-control {
   margin: 0 auto;
 }
 .testimonials-section .item h4 {
-  margin-top: 40px;
+  margin-top: 35px;
   font-size: 22px;
   text-transform: capitalize;
   font-weight: 700;
@@ -896,7 +896,7 @@ textarea.form-control {
 .filled-bar-2 {
   position: absolute;
   z-index: 99;
-  width: 65%;
+  width: 70%;
   height: 6px;
   background-color: #fff;
   border-radius: 3px;
@@ -917,6 +917,8 @@ textarea.form-control {
   background-color: #fff;
   border-radius: 3px;
 }
+
+
 /*==============================================
 11. CURSOR CSS
 ================================================*/
@@ -928,7 +930,7 @@ textarea.form-control {
   top: 0;
   left: 0;
   /* border: 2px solid white; */
-  /* background-color: rgba(255, 255, 255, 0.356); */
+  /*background-color: #a03050;*/
   height: 30px;
   width: 30px;
   border-radius: 50px;
@@ -941,17 +943,17 @@ textarea.form-control {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: white;
+  background-color:#ffff;
   height: 10px;
   width: 10px;
   border-radius: 50px;
 }
 .cursor::before{
-  background-color: rgb(255, 255, 255);
+  background-color: #ffff;
 }
 .cursor.click::before{
   animation: click 1s ease  forwards;
-  background-color: rgb(255, 255, 255);
+  background-color: #ffff;
 }
 @keyframes click{
   0%{
@@ -963,3 +965,5 @@ textarea.form-control {
      transform: translate(-50%, -50%) scale(7);
   }
  }
+
+

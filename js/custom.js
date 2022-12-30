@@ -1,4 +1,3 @@
-;
 (function($, window, document, undefined) {
     'use strict';
     var $winW = function() {
@@ -136,9 +135,10 @@
                 loop: true,
                 nav: false,
                 dots: true,
+                startPosition: 2,
                 items: 1,
                 margin: 30,
-                autoplay: true,
+                autoplay: false,
                 smartSpeed: 700,
                 autoplayTimeout: 6000,
                 responsive: {

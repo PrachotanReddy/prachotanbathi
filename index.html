@@ -25,7 +25,18 @@
     <link rel="stylesheet" href="css/templatemo-style.css">
 
     <link rel="stylesheet" href="css/responsive.css">
+    
 
+    <link href="css/jquery-ui-1.9.2.custom.css" rel="stylesheet">
+    <script language="javascript" type="text/javascript" src="jquery-1.8.3.js"></script>
+    <script src="js/jquery-ui-1.9.2.custom.js"></script>
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function() {
+          $('#trigger').click(function(){
+            $("#dialog").dialog();
+          }); 
+        });                  
+      </script>
     </head>
     
     <body>
@@ -57,6 +68,7 @@
                                     <li data-menuanchor="slide05"><a href="#slide05">My Work</a></li>
                                     <li data-menuanchor="slide06"><a href="#slide06">Testimonials</a></li>
                                     <li data-menuanchor="slide07"><a href="#slide07">Connect</a></li>
+                                    <li><a href="https://linepine.prachotanbathi.com/" target="_blank">Visit linePine<i class="fa fa-external-link" aria-hidden="true"></i></a></li>
                                 </ul>
                             </div>
                         </nav>
@@ -75,9 +87,10 @@
                 <div class="section-inner">
                     <div class="welcome-box">
                         <span class="welcome-first animate" data-animate="fadeInUp">Hello World, It's me</span>
-                        <h2 class="welcome-title animate" data-animate="fadeInUp">Prachotan Reddy</h2>
+                        <h2 class="welcome-title animate" data-animate="fadeInUp">Prachotan Bathi</h2>
                         <p class="animate" data-animate="fadeInUp" font-style: italic><i>karmaṇy-evādhikāras te mā phaleṣhu kadāchana<br>mā karma-phala-hetur bhūr mā te saṅgo ’stvakarmaṇi</i> ||2-47</p>
                         <p class="animate" data-animate="fadeInUp">You have a right to perform your prescribed duties, but you are not entitled to the fruits of your actions. Never consider yourself to be the cause of the results of your activities, nor be attached to inaction. </p>
+                        <h4><a class="link" href="https://blog.prachotanbathi.com/" >Open Blog <i class="fa fa-external-link " aria-hidden="true"></i></a></h4>
                         <div class="scroll-down next-section animate data-animate="fadeInUp""><img src="images/mouse-scroll.png" alt=""><span>Scroll Down</span></div>
                     </div>
                 </div>
@@ -94,9 +107,9 @@
                                             <div class="animate" data-animate="fadeInUp">
                                                 <span>About Me</span>
                                                 <h2>Who am i?</h2>
-                                                <p>I'm a junior undergrad student pursuing Computer Science with passion and will to explore it's applications. I find myself wanting to be a <strong>leader</strong> and not a <strong>follower</strong>. I am <strong>not afraid</strong> to ask for help when it's needed, but I <strong>prefer</strong> to do it on my own.<br>
+                                                <p>I'm a senior undergrad student pursuing Computer Science with the will to explore it's applications. I find myself wanting to be a <strong>leader</strong> and not a <strong>follower</strong>. I am <strong>not afraid</strong> to ask for help, but I <strong>prefer</strong> doing it on my own.<br>
                                                     I am not afraid of taking <strong>leaps</strong> and trying something new either.</p>
-                                                <h4><a class="link" href="https://drive.google.com/uc?export=download&id=1i8DLPYGP2Z4np3MSbV2GRNDWgvBNcgi-" >download my resume</a></h4>
+                                                <h4><a class="link" href="https://drive.google.com/uc?export=download&id=1CRWZJHh1SHxKRDXmNaO0I58svu9EFjMB" >download my resume</a></h4>
                                             </div>
                                             <div class="facts-list owl-carousel">
                                                 <div class="item animate" data-animate="fadeInUp">
@@ -106,17 +119,17 @@
                                                 </div>
                                                 <div class="item animate" data-animate="fadeInUp">
                                                     <div class="counter-box">
-                                                        <i class="fa fa-briefcase counter-icon" aria-hidden="true"></i><span class="count-number">2</span> Internships
+                                                        <i class="fa fa-briefcase counter-icon" aria-hidden="true"></i><span class="count-number">3</span> Internships
                                                     </div>
                                                 </div>
                                                 <div class="item animate" data-animate="fadeInUp">
                                                     <div class="counter-box">
-                                                        <i class="fa fa-support counter-icon" aria-hidden="true"></i><span class="count-number">15</span> Businesses Supported
+                                                        <i class="fa fa-support counter-icon" aria-hidden="true"></i><span class="count-number">15</span> Businesses Aided
                                                     </div>
                                                 </div>
                                                 <div class="item animate" data-animate="fadeInUp">
                                                     <div class="counter-box">
-                                                        <i class="fa fa-microphone counter-icon" aria-hidden="true"></i><span class="count-number">3</span> Publications & Talks
+                                                        <i class="fa fa-microphone counter-icon" aria-hidden="true"></i><span class="count-number">7</span> Publications & Talks
                                                     </div>
                                                 </div>
                                                 <div class="item animate" data-animate="fadeInUp">
@@ -128,7 +141,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <figure class="about-img animate" data-animate="fadeInUp"><img src="images/profile-guy.png" class="rounded" alt=""></figure>
+                                        <figure class="about-img animate" data-animate="fadeInUp"><img src="images/profile-guy2.jpg" class="rounded" alt=""></figure>
                                     </div>
                                 </div>
                             </div>
@@ -151,7 +164,7 @@
                                         <div class="service-box">
                                             <span class="service-icon"><i class="fa fa-search" aria-hidden="true"></i></span>
                                             <h3>Academic Research</h3>
-                                            <p>Bioinformatics and Cybersecurity are my areas of interest. I am open for research collaborations in the same.</p>
+                                            <p>Usable Security and Privacy are my areas of interest. I am open for research collaborations in the same.</p>
                                         </div>
                                     </div>
                                     <div class="item animate" data-animate="fadeInUp">
@@ -163,23 +176,30 @@
                                     </div>
                                     <div class="item animate" data-animate="fadeInUp">
                                         <div class="service-box">
+                                            <span class="service-icon"><i class="fa fa-book" aria-hidden="true"></i></span>
+                                            <h3>Teach</h3>
+                                            <p>I am enabling digital awareness for people of all ages through <a href="https://linepine.prachotanbathi.com/" target="_blank">linePine</a>.</p>
+                                        </div>
+                                    </div>
+                                    <div class="item animate" data-animate="fadeInUp">
+                                        <div class="service-box">
                                             <span class="service-icon"><i class="fa fa-building" aria-hidden="true"></i></span>
                                             <h3>Digital Support</h3>
-                                            <p>I provide digital solutions to Public Sector and Government entities.</p>
+                                            <p>I worked with Public Sector entities, assisted in achieving digital awareness.</p>
                                         </div>
                                     </div>
                                     <div class="item animate" data-animate="fadeInUp">
                                         <div class="service-box">
                                             <span class="service-icon"><i class="fa fa-user" aria-hidden="true"></i></span>
                                             <h3>Head of Research</h3>
-                                            <p>I lead the Research domain at <a href="https://wearemist.in/" target="_blank">MIST, The Manipal Information Security Team</a>, a student body aimed at Cybersecurity and Data Privacy. </p>
+                                            <p>I lead the Research wing at <a href="https://wearemist.in/" target="_blank">MIST, The Manipal Information Security Team</a>, a student body aimed at Cybersecurity and Data Privacy. </p>
                                         </div>
                                     </div>
                                     <div class="item animate" data-animate="fadeInUp">
                                         <div class="service-box">
                                             <span class="service-icon"><i class="fa fa-rupee" aria-hidden="true"></i></span>
                                             <h3>Treasurer</h3>
-                                            <p>I also hold a responsible position as the Treasurer at <a href="https://wearemist.in/" target="_blank">MIST, The Manipal Information Security Team.</a></p>
+                                            <p>I also held a responsible position as the Treasurer at <a href="https://wearemist.in/" target="_blank">MIST, The Manipal Information Security Team.</a></p>
                                         </div>
                                     </div>
                                     <div class="item animate" data-animate="fadeInUp">
@@ -222,16 +242,16 @@
                                 <div class="row">
                                     <div class="col-md-8 offset-md-2">   
                                         <div class="skill-item">
-                                            <h6>Programming in C, Java</h6>
+                                            <h6>Manuscript Writing</h6>
                                             <div class="skill-bar">
                                                 <span>80%</span>
                                                 <div class="filled-bar"></div>
                                             </div>          
                                         </div>
                                         <div class="skill-item">
-                                            <h6>Web Dev</h6>
+                                            <h6>Privacy and Security</h6>
                                             <div class="skill-bar">
-                                                <span>60%</span>
+                                                <span>70%</span>
                                                 <div class="filled-bar-2"></div>
                                             </div>          
                                         </div>
@@ -241,14 +261,7 @@
                                                 <span>85%</span>
                                                 <div class="filled-bar-3"></div>
                                             </div>          
-                                        </div>
-                                        <div class="skill-item last-skill">
-                                            <h6>Leadership</h6>
-                                            <div class="skill-bar">
-                                                <span>90%</span>
-                                                <div class="filled-bar-4"></div>
-                                            </div>          
-                                        </div>                   
+                                        </div>                  
                                     </div>
                                 </div>
                             </div>
@@ -270,7 +283,7 @@
                                     <div class="item animate" data-animate="fadeInUp">
                                         <div class="portfolio-item">
                                             <div class="thumb">
-                                                <img src="images/gartner.png" alt="">
+                                                <img src="images/gartner.webp" alt="">
                                             </div>
                                             <div class="thumb-inner animate" data-animate="fadeInUp">
                                                 <h4>Gartner Summit</h4>
@@ -281,7 +294,7 @@
                                     <div class="item animate" data-animate="fadeInUp">
                                         <div class="portfolio-item">
                                             <div class="thumb">
-                                                <img src="images/bact1.jpg" alt="">
+                                                <img src="images/bact1.webp" alt="">
                                             </div>
                                             <div class="thumb-inner animate" data-animate="fadeInUp">
                                                 <h4>Bioinformatic Research</h4>
@@ -293,40 +306,40 @@
                                     <div class="item animate" data-animate="fadeInUp">
                                         <div class="portfolio-item">
                                             <div class="thumb">
-                                                <img src="images/image1edit.jpg" alt="">
+                                                <img src="images/image1edit.webp" alt="">
                                             </div>
                                             <div class="thumb-inner animate" data-animate="fadeInUp">
                                                 <h4>Health Data Privacy</h4>
-                                                <p>Researching health data and the impact of its privacy in a cross-site referencing view.</p>
+                                                <p>Researching health data and the impact of its privacy, specifically working on de-identification and anonymization.</p>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="item animate" data-animate="fadeInUp">
                                         <div class="portfolio-item">
                                             <div class="thumb">
-                                                <img src="images/freelance.png" alt="">
+                                                <img src="images/freelance.webp" alt="">
                                             </div>
                                             <div class="thumb-inner animate" data-animate="fadeInUp">
                                                 <h4>Freelancing</h4>
-                                                <p>I've been a freelancer catering to a wide range of needs and requirements. I provide one stop solutions for all digital branding needs.</p>
+                                                <p>I've been a freelancer catering to a wide range of needs and requirements. I am currently lending services to the CAre Lab.</p>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="item animate" data-animate="fadeInUp">
                                         <div class="portfolio-item">
                                             <div class="thumb">
-                                                <img src="images/mypc.png" alt="">
+                                                <img src="images/mypc.webp" alt="">
                                             </div>
                                             <div class="thumb-inner animate" data-animate="fadeInUp">
                                                 <h4>MyPCMyStory</h4>
-                                                <p>Won the MyPCMyStory contest organised by Dell, a contest which emphasized on computers for a better society. Perks included an all paid visit to the Dell facility in Banglore, India.</p>
+                                                <p>Won the MyPCMyStory contest organised by Dell, a national level contest which emphasized on computers for a better society. Perks included an all paid visit to the Dell facility in Banglore, India.</p>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="item animate" data-animate="fadeInUp">
                                         <div class="portfolio-item">
                                             <div class="thumb">
-                                                <img src="images/scholar1.jpg" alt="">
+                                                <img src="images/scholar1.webp" alt="">
                                             </div>
                                             <div class="thumb-inner animate" data-animate="fadeInUp">
                                                 <h4>Merit Scholarship</h4>
@@ -337,7 +350,7 @@
                                     <div class="item animate" data-animate="fadeInUp">
                                         <div class="portfolio-item">
                                             <div class="thumb">
-                                                <img src="images/talk.jpg" alt="">
+                                                <img src="images/talk.webp" alt="">
                                             </div>
                                             <div class="thumb-inner animate" data-animate="fadeInUp">
                                                 <h4>Talks</h4>
@@ -349,7 +362,7 @@
                                     <div class="item animate" data-animate="fadeInUp">
                                         <div class="portfolio-item">
                                             <div class="thumb">
-                                                <img src="images/article.png" alt="">
+                                                <img src="images/article.webp" alt="">
                                             </div>
                                             <div class="thumb-inner animate" data-animate="fadeInUp">
                                                 <h4>Article</h4>
@@ -362,11 +375,11 @@
                                     <div class="item animate" data-animate="fadeInUp">
                                         <div class="portfolio-item">
                                             <div class="thumb">
-                                                <img src="images/travel.jpg" alt="">
+                                                <img src="images/travel.webp" alt="">
                                             </div>
                                             <div class="thumb-inner animate" data-animate="fadeInUp">
                                                 <h4>Travel</h4>
-                                                <p>Travelled and explored the forests and hills through the extent of the western ghats. Covered a distance of 750 KMs by bike and motorbike. </p>
+                                                <p>Travelled and explored the forests and hills through the extent of the western ghats. Covered a distance of 1500 KMs by bike and motorbike. </p>
                                             </div>
                                         </div>
                                     </div>
@@ -395,8 +408,7 @@
                                                 </div>
                                                 <div class="testimonial-content">
                                                     <h4>Dr Ravindranath BS</h4>
-                                                    <p>"I have noticed him with high professional ethics when it comes to
-                                                        completing his work, both classwork and research assignments. Which I believe is a good
+                                                    <p>"I have noticed high professional ethics when it comes to completing his work, both classwork and research assignments. Which I believe is a good
                                                         measure to predict his ethics as a professional researcher."</p>
                                                     <span>Faculty, Dept. of BioTechnology</span>
                                                 </div>                                           
@@ -405,7 +417,7 @@
                                         <div class="item animate" data-animate="fadeInUp">
                                             <div class="testimonial-item">
                                                 <div class="client-row">
-                                                    <img src="images/profile-03.jpg" class="rounded-circle" alt="profile 1">
+                                                    <img src="images/profile-03.webp" class="rounded-circle" alt="profile 1">
                                                 </div>
                                                 <div class="testimonial-content">
                                                     <h4>Dr. Shobha M E</h4>
@@ -417,24 +429,24 @@
                                         <div class="item animate" data-animate="fadeInUp">
                                             <div class="testimonial-item">
                                                 <div class="client-row">
-                                                    <img src="images/prof.jpg" class="rounded-circle" alt="profile 2">
+                                                    <img src="images/lobchuk.webp" class="rounded-circle" alt="profile 2">
                                                 </div>
                                                 <div class="testimonial-content">
-                                                    <h4>Mr. Mustafa Shake</h4>
-                                                    <p>"Prachotan has been ever learning and explorative. His attention to detail and critical thinking has always placed him out of the group."</p>
-                                                    <span>Officer on Special Duty, HMWSSB</span>
+                                                    <h4>Dr. Michelle Lobchuk</h4>
+                                                    <p>"During our initial meeting, it was evident that Prachotan possessed all of the essential characteristics: An ideal undergraduate student with a desire to learn more "</p>
+                                                    <span>CAre Lab, University of Manitoba</span>
                                                 </div>                                           
                                             </div>
                                         </div>
                                         <div class="item animate" data-animate="fadeInUp">
                                             <div class="testimonial-item">
                                                 <div class="client-row">
-                                                    <img src="images/sathi.jpg" class="rounded-circle" alt="profile 3">
+                                                    <img src="images/prof.webp" class="rounded-circle" alt="profile 2">
                                                 </div>
                                                 <div class="testimonial-content">
-                                                    <h4>Srinija Sathi</h4>
-                                                    <p>"A good and confident speaker. Feels fun and energetic when he's around."</p>
-                                                    <span>Mon Amie, UnderGrad Bachelor of Architecture</span>
+                                                    <h4>Mr. Mustafa Shake</h4>
+                                                    <p>"Prachotan has been ever learning and explorative. His attention to detail and critical thinking has always placed him out of the group."</p>
+                                                    <span>Officer on Special Duty, HMWSSB</span>
                                                 </div>                                           
                                             </div>
                                         </div>
@@ -458,15 +470,15 @@
                                 <div class="row">
                                     <div class="col-md-6 animate" data-animate="fadeInUp">
                                         <div class="contact-box">
-                                            <div class="contact-row">
-                                                <i class="fa fa-map-marker"></i> Manipal Institute of Technology, Manipal - 576104
+                                            <div class="contact-row"> 
+                                                <i class="fa fa-map-marker"></i> University of Southern California
                                             </div>
                                             <div class="contact-row">
-                                                <a href="tel:918074776093"><i class="fa fa-phone"></i></a><a href="https://api.whatsapp.com/send?phone=918074776093&text=Hey%20Prachotan!%0AI%27ve%20seen%20your%20site.%0AWould%20like%20to%20get%20in%20touch." target="_blank">
-                                                    <i class="fa fa-whatsapp"></i></a> +91 807 477 6093
+                                                <a href="tel:+1(213)5746502"><i class="fa fa-phone"></i></a><a href="https://api.whatsapp.com/send?phone=918074776093&text=Hey%20Prachotan!%0AI%27ve%20seen%20your%20site.%0AWould%20like%20to%20get%20in%20touch." target="_blank">
+                                                    <i class="fa fa-whatsapp"></i></a> +1 (213)5746502
                                             </div>
-                                            <a href="mailto:connect@prachotanbathi.email"><div class="contact-row">
-                                                <i class="fa fa-envelope"></i> connect@prachotanbathi.email
+                                            <a href="mailto:email@prachotanbathi.com"><div class="contact-row">
+                                                <i class="fa fa-envelope"></i> email@prachotanbathi.com
                                             </div></a>
                                         </div>
                                     </div>
@@ -491,20 +503,20 @@
                     </div>
                 </div>
             </div>
+            
         </div>
-
         <div id="social-icons">
             <div class="text-right">
                 <ul class="social-icons">
                     <li><a href="https://www.linkedin.com/in/prachotanbathi" title="Linkedin" target="_blank"><i class="fa fa-linkedin"></i></a></li>
                     <li><a href="https://github.com/PrachotanReddy" title="GitHub" target="_blank"><i class="fa fa-github"></i></a></li>
                     <li><a href="https://twitter.com/PrachotanReddy" title="Twitter" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="https://www.instagram.com/reddy_prachotan/" title="Instagram" target="_blank"><i class="fa fa-instagram"></i></a></li>
-                    <li><a href="https://www.facebook.com/prachotan.reddy.3/" title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="https://www.instagram.com/prachotan_reddy/" title="Instagram" target="_blank"><i class="fa fa-instagram"></i></a></li>
                 </ul>
             </div>
         </div>
-    </div>  
+        
+    </div>
     <div class="cursor"></div>
     <script src="js/jquery.js"></script>
 
