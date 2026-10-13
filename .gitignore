@@ -1,0 +1,12 @@
+node_modules/
+dist/
+test-results/
+playwright-report/
+.DS_Store
+tests/
+# Local credentials and unprocessed media are never needed to build the site.
+.env
+.env.*
+.npmrc
+output/
+npm-debug.log*
