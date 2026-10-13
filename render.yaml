@@ -1,0 +1,10 @@
+# Existing dashboard-managed services must also use these build/publish settings.
+# Existing PR previews keep their own settings; update those before redeploying.
+services:
+  - type: web
+    name: portfolio-site
+    runtime: static
+    buildCommand: npm ci --include=dev && npm run build
+    staticPublishPath: ./dist
+    previews:
+      generation: automatic

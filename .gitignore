@@ -10,3 +10,4 @@ tests/
 .npmrc
 output/
 npm-debug.log*
+onrender_logs*.txt
