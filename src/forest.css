@@ -199,5 +199,22 @@ body:has(.forest-hero) .site-header { position: absolute; inset: 0 0 auto; backg
 @media (max-height: 500px) {
   .forest-preview { position: fixed; top: 50%; bottom: auto; left: 50%; right: auto; transform: translate(-50%, -50%); width: min(360px, calc(100vw - 32px)); max-height: calc(100svh - 112px); overflow-y: auto; margin: 0; }
 }
+@media (hover: none) and (pointer: coarse) {
+  /* These image-only groups must not inherit the animated page text color:
+     Chrome otherwise repaints their masked textures on every theme frame. */
+  .forest-cast, .forest-landscape, .forest-foreground, .forest-lights { color: #254734; }
+  /* Keep the moving cutouts and changing text on separate, stable layers. */
+  .forest-cast, .forest-clearing { will-change: transform; }
+  .forest-daylight, .forest-moonlight, .forest-lights { will-change: opacity; }
+  /* Fade night exposure over the same video instead of animating its filter.
+     The shade retains the previous .66 / 1.04 night-to-day brightness ratio. */
+  .forest-footage, [data-theme='dark'] .forest-footage { filter: saturate(.9) brightness(1.04); transition: none; }
+  .forest-footage::after { content: ''; position: absolute; inset: 0; background: #000; opacity: 0; transition: opacity var(--theme-fade); will-change: opacity; }
+  [data-theme='dark'] .forest-footage::after { opacity: .3654; }
+}
+@media (hover: none) and (pointer: coarse) and (prefers-color-scheme: dark) {
+  :root:not([data-theme]) .forest-footage { filter: saturate(.9) brightness(1.04); }
+  :root:not([data-theme]) .forest-footage::after { opacity: .3654; }
+}
 :root.reduced-motion { transition: none !important; }
 @media (prefers-reduced-motion: reduce) { .forest-scene *, .forest-scene *::before { transition: none !important; } }
