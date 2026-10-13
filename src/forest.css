@@ -1,0 +1,220 @@
+/* Typed palette tokens interpolate once at the root. Every surface, gradient,
+   and inherited text color follows the same fade without nested transitions. */
+@property --ivory { syntax: '<color>'; inherits: true; initial-value: #f6f5ed; }
+@property --forest { syntax: '<color>'; inherits: true; initial-value: #254734; }
+@property --muted { syntax: '<color>'; inherits: true; initial-value: #677062; }
+@property --surface { syntax: '<color>'; inherits: true; initial-value: #e9ecd9; }
+@property --deep { syntax: '<color>'; inherits: true; initial-value: #254734; }
+@property --line { syntax: '<color>'; inherits: true; initial-value: #25473430; }
+@property --accent { syntax: '<color>'; inherits: true; initial-value: #8b9c58; }
+@property --loader { syntax: '<color>'; inherits: true; initial-value: #dce7bb; }
+@property --transition { syntax: '<color>'; inherits: true; initial-value: #bfd19b; }
+@property --sky { syntax: '<color>'; inherits: true; initial-value: #eaf0dc; }
+@property --night-amount { syntax: '<percentage>'; inherits: true; initial-value: 0%; }
+:root { --theme-fade: 1.1s cubic-bezier(.45, 0, .2, 1); }
+:root { --ivory: #f6f5ed; --forest: #254734; --muted: #677062; --surface: #e9ecd9; --deep: #254734; --line: #25473430; --accent: #8b9c58; --loader: #dce7bb; --transition: #bfd19b; --night-amount: 0%; --sky: #eaf0dc; --moon: #f5e7b4; color-scheme: light; color: var(--forest); background: var(--ivory); }
+:root[data-theme='dark'] { --ivory: #102921; --forest: #eef0dc; --muted: #b0c1ac; --surface: #1b372c; --deep: #172f27; --line: #dfebca35; --accent: #c8d998; --loader: #203b2d; --transition: #34503b; --night-amount: 83%; --sky: #112e2d; color-scheme: dark; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) { --ivory: #102921; --forest: #eef0dc; --muted: #b0c1ac; --surface: #1b372c; --deep: #172f27; --line: #dfebca35; --accent: #c8d998; --loader: #203b2d; --transition: #34503b; --night-amount: 83%; --sky: #112e2d; color-scheme: dark; }
+}
+:root { transition: --ivory var(--theme-fade), --forest var(--theme-fade), --muted var(--theme-fade), --surface var(--theme-fade), --deep var(--theme-fade), --line var(--theme-fade), --accent var(--theme-fade), --loader var(--theme-fade), --transition var(--theme-fade), --sky var(--theme-fade), --night-amount var(--theme-fade); }
+:root, body { background: var(--ivory); color: var(--forest); }
+:focus-visible { outline-color: #885b2c; }
+[data-theme='dark'] :focus-visible { outline-color: #edc780; }
+.about-section { background: var(--deep); }
+.work-card, .detail-hero { background: color-mix(in srgb, var(--card-color), var(--surface) var(--night-amount)); }
+.contact-section { background: var(--surface); }
+.contact-pending { color: var(--muted); }
+.contact-section h2 > span { color: var(--accent); }
+.round-arrow, .hero-baseline, .footer-bottom, .question-list li, .detail-nav a, .static-topic { border-color: var(--line); }
+.preloader { background: var(--loader); }
+.transition-tile { background: var(--transition); }
+.card-index { color: var(--muted); }
+.deck-pick img { background: color-mix(in srgb, var(--card-color), var(--surface) var(--night-amount)); }
+.site-header { z-index: 10; }
+body:has(.forest-hero) .site-header { position: absolute; inset: 0 0 auto; background: transparent; }
+.forest-hero { padding: 0; }
+.forest-scene { position: relative; isolation: isolate; height: max(800px, 100svh); overflow: hidden; overflow: clip; touch-action: pan-y pinch-zoom; background: var(--sky); }
+.forest-landscape, .forest-backdrop, .forest-foreground, .forest-lights, .forest-animals { position: absolute; inset: 0; }
+.forest-landscape { z-index: -2; pointer-events: none; }
+.forest-backdrop { inset: -2%; transition: opacity var(--theme-fade); }
+.forest-backdrop img { width: 100%; height: 100%; object-fit: cover; object-position: center 60%; }
+.forest-backdrop-night { opacity: 0; }
+[data-theme='dark'] .forest-backdrop-night { opacity: 1; }
+[data-theme='dark'] .forest-backdrop-day { opacity: 0; }
+.forest-film, .forest-footage, .forest-video, .forest-video-poster, .forest-daylight, .forest-moonlight { position: absolute; inset: 0; width: 100%; height: 100%; }
+.forest-footage { filter: saturate(.9) brightness(1.04); transition: filter var(--theme-fade); }
+.forest-video, .forest-video-poster { object-fit: cover; object-position: center; }
+.forest-video { opacity: 0; transition: opacity .65s ease; }
+.forest-video.is-playing { opacity: 1; }
+.forest-daylight { background: radial-gradient(ellipse 52% 47% at 50% 30%, #f6f3dfee 0%, #f4f0ded6 37%, #eeecc378 62%, transparent 100%), linear-gradient(180deg, #f6f5edd9 0%, #e7e7c52b 24%, #d6cb8820 67%, #153c231a); transition: opacity var(--theme-fade); }
+.forest-moonlight { opacity: 0; background: radial-gradient(ellipse 60% 54% at 50% 29%, #0a223be0, #132f4266 68%, transparent), linear-gradient(180deg, #071d33c9, #1b435770 55%, #081e35b3); transition: opacity var(--theme-fade); }
+[data-theme='dark'] .forest-footage { filter: saturate(.55) brightness(.66); }
+[data-theme='dark'] .forest-daylight { opacity: 0; }
+[data-theme='dark'] .forest-moonlight { opacity: 1; }
+/* Keep the gradient shape fixed and let the palette fade its solid color. */
+.forest-mist { position: absolute; inset: auto 0 0; height: 16%; pointer-events: none; background: var(--ivory); mask-image: linear-gradient(0deg, #000, transparent); }
+.forest-clearing { position: absolute; z-index: 5; top: clamp(140px, 16svh, 170px); left: 50%; transform: translateX(-50%); width: min(90%, 1200px); text-align: center; pointer-events: none; }
+.forest-clearing h1, .forest-clearing p { width: fit-content; margin-inline: auto; pointer-events: auto; }
+.forest-clearing .explore-link { pointer-events: auto; }
+.forest-clearing h1 { font-family: 'Marcellus', Georgia, serif; font-size: clamp(20px, 6.2vw, 72px); font-weight: 400; line-height: 1.12; letter-spacing: .025em; text-transform: uppercase; white-space: nowrap; }
+.forest-clearing h1 > span { color: var(--accent); }
+.forest-clearing p { margin-top: 23px; font-size: 14px; line-height: 1.8; }
+.forest-clearing p span { color: var(--muted); }
+.forest-clearing .explore-link { display: flex; position: relative; width: fit-content; justify-content: center; align-items: center; font-size: 13px; line-height: 1.4; margin: 18px auto 0; gap: 12px; border: 0; }
+.forest-clearing .explore-link::after { content: ''; position: absolute; left: 0; right: 0; bottom: 6px; height: 1px; background: currentColor; }
+.forest-clearing .explore-link .icon { width: 18px; height: 18px; flex: 0 0 18px; }
+/* The track's own width is the travel distance, so only a transform animates. */
+.celestial-orbit { --celestial-size: 56px; --celestial-inset: 12%; position: absolute; z-index: 5; top: 96px; left: var(--celestial-inset); width: calc(100% - var(--celestial-inset) - var(--celestial-inset) - var(--celestial-size)); height: var(--celestial-size); transform: translateX(100%); transition: transform var(--theme-fade); pointer-events: none; }
+.celestial-toggle { position: absolute; top: 0; left: 0; width: var(--celestial-size); height: var(--celestial-size); border: 0; background: none; color: #bd8b35; padding: 0; border-radius: 50%; pointer-events: auto; }
+.celestial-toggle > svg { width: 100%; height: 100%; filter: drop-shadow(0 0 18px #e0bc5555); transition: transform .6s; }
+.celestial-toggle:hover > svg { transform: rotate(12deg) scale(1.08); }
+.celestial-moon { opacity: 0; }
+.celestial-sun, .celestial-moon { transition: opacity var(--theme-fade); transform-origin: center; }
+.celestial-moon { color: var(--moon); }
+[data-theme='dark'] .celestial-sun { opacity: 0; }
+[data-theme='dark'] .celestial-moon { opacity: 1; }
+[data-theme='dark'] .celestial-orbit { transform: translateX(0); }
+.celestial-hint { position: absolute; bottom: calc(100% + 3px); left: 50%; padding: 5px 8px; border: 1px solid #d0dda64a; border-radius: 6px; background: #eef0da; color: #203c30; font-size: 10px; line-height: 1.2; white-space: nowrap; pointer-events: none; opacity: 0; visibility: hidden; transform: translateY(3px); box-shadow: 0 3px 12px #071d3333; transition: opacity .22s, transform .22s, visibility .22s; }
+.celestial-hint::after { content: ''; position: absolute; top: 100%; left: 7px; border: 4px solid transparent; border-top-color: #eef0da; }
+.celestial-toggle.is-hint-visible .celestial-hint { opacity: 1; visibility: visible; transform: translateY(0); }
+.forest-cast { --cast-height: 320px; position: absolute; z-index: 1; left: 50%; bottom: 140px; width: min(840px, calc(100% - 100px)); height: var(--cast-height); transform: translateX(-50%); pointer-events: none; }
+.forest-ground { position: absolute; z-index: 0; left: 13%; bottom: -3%; width: 72%; height: 22%; border-radius: 50%; background: radial-gradient(ellipse, #10251970, #0e261a24 52%, transparent 72%); filter: blur(8px); }
+.forest-animals { pointer-events: none; }
+.forest-animal { position: absolute; z-index: var(--layer); left: var(--x); top: var(--y); width: var(--size); aspect-ratio: 1; min-width: 64px; min-height: 64px; transform: translate(-50%, -50%); pointer-events: auto; border-radius: 35%; -webkit-user-drag: none; }
+.forest-animal-motion { display: block; position: absolute; inset: 0; }
+.forest-animal-motion::before { content: ''; position: absolute; width: 66%; height: 10%; left: 17%; bottom: 5%; border-radius: 50%; background: radial-gradient(ellipse, #0b231e70, #10271c30 45%, transparent 72%); filter: blur(3px); pointer-events: none; }
+.animal-owl .forest-animal-motion::before { display: none; }
+.forest-animal-art { display: block; width: 100%; height: 100%; mask-image: linear-gradient(#000 80%, #000e 91%, transparent 100%); transition: transform .45s cubic-bezier(.2,.7,.2,1); }
+.animal-owl .forest-animal-art { mask-image: none; }
+.forest-animal-art img { height: 100%; width: 100%; object-fit: contain; user-select: none; pointer-events: none; -webkit-user-drag: none; }
+/* Keep the moving cutout textures stable in Chrome. A shared light overlay
+   supplies night shading; interpolating each image's filter can flash as the
+   browser recomposites it during parallax. */
+.forest-animal-art img, .forest-robot img { filter: saturate(.72) contrast(.9) brightness(.91) sepia(.08); backface-visibility: hidden; transform: translateZ(0); }
+.animal-cover, .forest-fern { filter: saturate(.64) brightness(.82); backface-visibility: hidden; }
+/* Keep the owl's grounded perch behind the foreground animals on selection. */
+.forest-animal:not(.animal-owl):is(:focus-visible, [aria-expanded='true']) { z-index: 6; }
+.forest-animal:is(:hover, :focus-visible, [aria-expanded='true']) .forest-animal-art { transform: translateY(-4px) rotate(-1.5deg); }
+.forest-tooltip { position: absolute; z-index: 7; left: 0; top: 0; width: max-content; max-width: min(260px, calc(100% - 24px)); padding: 10px 14px; border: 1px solid var(--line); background: var(--ivory); color: var(--forest); border-radius: 10px; font-size: 12px; font-weight: 550; line-height: 1.4; display: flex; align-items: center; gap: 10px; box-shadow: 0 5px 20px #0002; cursor: default; }
+.forest-tooltip .icon { width: 15px; height: 15px; flex: 0 0 15px; }
+.animal-cover { position: absolute; pointer-events: none; width: 85%; height: 42%; object-fit: contain; bottom: 1%; left: 3%; }
+.cover-fern { width: 92%; height: 38%; bottom: 0; left: 4%; }
+/* The perch shares the owl's parallax and hover transform. Its bark meets the
+   talons; keeping the complete image ratio avoids the old letterboxed offset. */
+.animal-owl .cover-branch { top: 44%; bottom: auto; left: -22.5%; width: 145%; height: auto; max-width: none; aspect-ratio: 640 / 440; transform: rotate(10deg); transform-origin: 50% 50%; }
+.animal-owl .owl-stump { position: absolute; top: 80%; left: 50%; width: auto; height: calc(var(--cast-height) * .76 - 30%); max-width: none; aspect-ratio: 1; transform: translate3d(-50%, 0, 0); mask-image: linear-gradient(#000 89%, transparent 100%); pointer-events: none; }
+.animal-owl:is(:hover, :focus-visible, [aria-expanded='true']) .forest-animal-art { transform: none; }
+.animal-owl .forest-animal-art > [data-illustration] { position: relative; }
+.cover-log { bottom: 0; height: 35%; }
+.forest-robot { position: absolute; width: 44%; height: 100%; top: 0; left: 31%; z-index: 3; pointer-events: none; transform-origin: center 80%; mask-image: linear-gradient(#000 85%, transparent 100%); }
+.forest-robot > img { width: 100%; height: 100%; object-fit: contain; }
+.forest-atmosphere { position: absolute; inset: 0; z-index: 3; pointer-events: none; background: radial-gradient(ellipse 74% 54% at 50% 22%, #d9dfbf40, transparent 78%), linear-gradient(180deg, #b8c7910a, transparent 50%, #143b201a); }
+.forest-atmosphere::after { content: ''; position: absolute; inset: 0; opacity: 0; background: linear-gradient(180deg, #11354855, #102e4680 65%, #0b253675); transition: opacity var(--theme-fade); will-change: opacity; }
+[data-theme='dark'] .forest-atmosphere::after { opacity: 1; }
+.forest-foreground { z-index: 2; pointer-events: none; }
+.forest-fern { position: absolute; bottom: -10%; width: 28%; height: 40%; object-fit: contain; transform-origin: center 90%; }
+.fern-left { left: -9%; }
+.fern-right { right: -9%; transform: scaleX(-1); }
+.forest-lights { z-index: 4; pointer-events: none; opacity: 0; transition: opacity var(--theme-fade); }
+[data-theme='dark'] .forest-lights { opacity: 1; }
+.forest-firefly { position: absolute; width: 3px; height: 3px; border-radius: 50%; background: #e9e4a0; box-shadow: 0 0 12px 3px #d2d48945; }
+.forest-clearing .forest-hint { width: 260px; max-width: 100%; margin: 6px auto 0; text-align: center; font-family: 'Fraunces Variable', Georgia, serif; font-style: italic; font-size: 13px; line-height: 1.6; pointer-events: none; }
+.forest-hint-story { display: none; }
+.forest-hint-action { display: block; font-family: 'DM Sans Variable', sans-serif; font-size: 10px; font-style: normal; color: var(--muted); }
+.forest-hero .hero-baseline { margin: 0 var(--gutter); padding: 16px 0; min-height: 62px; border: 0; }
+.hero-baseline > a { min-height: 44px; display: flex; align-items: center; gap: 12px; }
+.forest-preview { position: absolute; z-index: 8; top: var(--preview-y, 50%); left: var(--preview-x, 50%); transform: translate(-50%, -50%); width: 325px; padding: 25px; border: 1px solid var(--line); border-radius: 18px; background: var(--ivory); color: var(--forest); box-shadow: 0 20px 80px #071a2840; }
+.forest-preview [data-preview-close] { position: absolute; top: 3px; right: 3px; width: 44px; height: 44px; font-size: 26px; color: var(--muted); border: 0; background: none; border-radius: 50%; }
+.forest-preview-kicker { font: italic 13px 'Fraunces Variable', Georgia, serif; color: var(--muted); margin-bottom: 14px; padding-right: 16px; }
+.forest-preview h2 { font-size: 29px; line-height: 1.08; letter-spacing: -.04em; padding-right: 10px; }
+.forest-preview [data-preview-summary] { margin: 15px 0 12px; font-size: 12px; line-height: 1.65; }
+.forest-preview .text-link { width: 100%; font-size: 12px; }
+.forest-dock { width: 516px; }
+.dock-theme { color: #e5eccc; display: flex; align-items: center; justify-content: center; gap: 5px; background: none; border: 0; border-left: 1px solid #77907066; border-radius: 0; min-width: 60px; min-height: 44px; font-size: 10px; padding: 8px; }
+.dock-theme svg { width: 23px; height: 23px; }
+.dock-theme:hover { background: #3d5d43; }
+.dock-canopy > span { background: var(--ivory); color: var(--forest); }
+.is-scrolled .dock-toggle { background: var(--deep); }
+.social-tooltip { border-color: var(--line); }
+.about-heading h2, .work-heading h2, .contact-section h2, .work-card h3, .detail-intro h1, .detail-body h2, .forest-preview h2 { font-family: 'Marcellus', Georgia, serif; font-weight: 400; letter-spacing: -.035em; }
+.work-card h3 { font-size: clamp(36px, 3.5vw, 52px); line-height: 1.1; }
+.detail-intro h1 { font-size: clamp(48px, 5.5vw, 78px); line-height: 1.1; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) .forest-backdrop-night { opacity: 1; }
+  :root:not([data-theme]) .forest-backdrop-day { opacity: 0; }
+  :root:not([data-theme]) .forest-footage { filter: saturate(.55) brightness(.66); }
+  :root:not([data-theme]) .forest-daylight { opacity: 0; }
+  :root:not([data-theme]) .forest-moonlight { opacity: 1; }
+  :root:not([data-theme]) .forest-atmosphere::after { opacity: 1; }
+  :root:not([data-theme]) .celestial-sun { opacity: 0; }
+  :root:not([data-theme]) .celestial-moon { opacity: 1; }
+  :root:not([data-theme]) .celestial-orbit { transform: translateX(0); }
+}
+@media (max-width: 900px) {
+  .forest-clearing p { font-size: 12px; }
+  .is-scrolled .dock-theme { width: 100%; border-left: 0; border-top: 1px solid #77907066; font-size: 9px; padding: 5px; }
+  .is-scrolled.is-expanded::before { height: 355px; }
+  .work-deck .work-card h3 { font-size: clamp(28px, 7.5vw, 33px); line-height: 1.1; }
+}
+@media (max-width: 700px) {
+  .forest-scene { height: max(780px, 100svh); }
+  .forest-clearing { top: 144px; }
+  .forest-clearing h1 { line-height: 1.15; letter-spacing: .015em; }
+  .forest-clearing p { font-size: 11px; margin-top: 15px; line-height: 1.7; }
+  .forest-clearing .explore-link { font-size: 12px; margin-top: 8px; min-height: 44px; }
+  .celestial-orbit { --celestial-size: 48px; --celestial-inset: 11%; top: 80px; }
+  .celestial-hint { left: calc(50% + 16px); font-size: 9px; }
+  .forest-animal { left: var(--mx); top: var(--my); width: var(--ms); }
+  .forest-cast { width: min(460px, calc(100% - 12px)); bottom: 140px; }
+  .animal-owl .owl-stump { height: calc(var(--cast-height) * .78 - 30%); }
+  .forest-tooltip { font-size: 11px; max-width: min(240px, calc(100% - 24px)); padding: 9px 12px; }
+  .forest-robot { left: 21%; top: 0; width: 60%; height: 100%; }
+  .forest-fern { width: 45%; height: 35%; bottom: -5%; }
+  .fern-left { left: -16%; }
+  .fern-right { right: -16%; }
+  .forest-clearing .forest-hint { margin-top: 9px; font-size: 11px; }
+  .forest-hint-story { display: block; }
+  .forest-daylight { background: radial-gradient(ellipse 95% 37% at 50% 29%, #f6f3dff5, #f4f0dedb 49%, #eeecc365 77%, transparent), linear-gradient(180deg, #f6f5edc9, #e7e7c52b 25%, transparent 75%); }
+  .forest-hint > span:last-child { font-size: 9px; }
+  .forest-preview { position: fixed; top: 50%; left: 16px; right: 16px; bottom: auto; transform: translateY(-50%); width: auto; max-width: 430px; max-height: calc(100svh - 160px); overflow-y: auto; margin: 0 auto; padding: 20px; }
+  .forest-preview h2 { font-size: 25px; max-width: 260px; }
+  .forest-preview [data-preview-summary] { margin: 10px 0; }
+  .forest-hero .hero-baseline { font-size: 9px; min-height: 60px; gap: 20px; padding: 8px 0; }
+  .forest-hero .hero-baseline > span { max-width: 155px; }
+  .forest-hero .hero-baseline > a { font-size: 9px; white-space: nowrap; }
+  .detail-intro h1 { font-size: clamp(40px, 10vw, 54px); }
+}
+@media (max-width: 600px) {
+  .forest-dock { width: 358px; }
+  .social-link { padding-inline: 8px; }
+  .dock-theme { min-width: 44px; padding: 5px 7px; flex-direction: column; gap: 3px; font-size: 9px; }
+  .forest-dock .motion-toggle { padding-inline: 8px; }
+  .dock-theme svg { width: 21px; height: 21px; }
+}
+@media (min-width: 701px) and (max-height: 850px) {
+  .forest-clearing { top: 130px; }
+  .forest-cast { --cast-height: 260px; bottom: 120px; }
+}
+@media (max-height: 500px) {
+  .forest-preview { position: fixed; top: 50%; bottom: auto; left: 50%; right: auto; transform: translate(-50%, -50%); width: min(360px, calc(100vw - 32px)); max-height: calc(100svh - 112px); overflow-y: auto; margin: 0; }
+}
+@media (hover: none) and (pointer: coarse) {
+  /* These image-only groups must not inherit the animated page text color:
+     Chrome otherwise repaints their masked textures on every theme frame. */
+  .forest-cast, .forest-landscape, .forest-foreground, .forest-lights { color: #254734; }
+  /* Keep the moving cutouts and changing text on separate, stable layers. */
+  .forest-cast, .forest-clearing { will-change: transform; }
+  .forest-daylight, .forest-moonlight, .forest-lights { will-change: opacity; }
+  /* Fade night exposure over the same video instead of animating its filter.
+     The shade retains the previous .66 / 1.04 night-to-day brightness ratio. */
+  .forest-footage, [data-theme='dark'] .forest-footage { filter: saturate(.9) brightness(1.04); transition: none; }
+  .forest-footage::after { content: ''; position: absolute; inset: 0; background: #000; opacity: 0; transition: opacity var(--theme-fade); will-change: opacity; }
+  [data-theme='dark'] .forest-footage::after { opacity: .3654; }
+}
+@media (hover: none) and (pointer: coarse) and (prefers-color-scheme: dark) {
+  :root:not([data-theme]) .forest-footage { filter: saturate(.9) brightness(1.04); }
+  :root:not([data-theme]) .forest-footage::after { opacity: .3654; }
+}
+:root.reduced-motion { transition: none !important; }
+@media (prefers-reduced-motion: reduce) { .forest-scene *, .forest-scene *::before { transition: none !important; } }
