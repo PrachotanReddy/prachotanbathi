@@ -132,7 +132,6 @@ h2 { font-size: clamp(48px, 6.15vw, 88px); font-weight: 650; line-height: 1.03; 
 .contact-secondary { font-size: 12px; color: var(--muted); border-bottom: 0; gap: 12px; }
 .contact-secondary .icon { width: 17px; height: 17px; flex-basis: 17px; }
 .bear-illustration { position: relative; transform: translateY(-8px); }
-.bear-caption { position: absolute; bottom: -4px; left: 50%; transform: translateX(-50%) rotate(-4deg); font-family: 'Fraunces Variable', Georgia, serif; font-style: italic; font-size: 17px; white-space: nowrap; }
 .footer-bottom { border-top: 1px solid #25473430; display: flex; align-items: center; justify-content: space-between; padding-top: 23px; gap: 20px; font-size: 10px; }
 .footer-name { font-weight: 650; font-size: 12px; min-height: 44px; display: flex; align-items: center; }
 .back-top { display: flex; align-items: center; gap: 9px; min-height: 44px; }
@@ -240,7 +239,6 @@ h2 { font-size: clamp(48px, 6.15vw, 88px); font-weight: 650; line-height: 1.03; 
   .contact-section h2 { font-size: 76px; }
   .contact-pretitle { font-size: 23px; }
   .contact-copy { font-size: 12px; }
-  .bear-caption { font-size: 13px; }
   .footer-bottom > span { display: none; }
   .detail-hero { min-height: 450px; padding-top: 40px; padding-bottom: 40px; }
   .detail-intro h1 { font-size: 55px; }
@@ -318,7 +316,6 @@ h2 { font-size: clamp(48px, 6.15vw, 88px); font-weight: 650; line-height: 1.03; 
   .contact-copy { font-size: 13px; margin-top: 20px; }
   .contact-pending { margin-top: 19px; font-size: 11px; }
   .bear-illustration { width: 100%; transform: none; margin-top: 1px; }
-  .bear-caption { bottom: 3px; font-size: 16px; }
   .footer-bottom { align-items: center; gap: 12px; font-size: 9px; padding-top: 14px; }
   .footer-name { font-size: 10px; }
   .back-top { gap: 6px; }
